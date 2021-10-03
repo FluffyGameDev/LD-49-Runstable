@@ -25,6 +25,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float m_SprintGaugeDecelerationRate = 0.5f;
 
+    [SerializeField]
+    private AudioChannel m_AudioChannel;
+    [SerializeField]
+    private AudioClip[] m_PossibleJumpClips;
+    private System.Random m_Random = new System.Random();
+
+
+
     private CharacterController m_CharacterController;
     private CrouchBehavior m_CrouchBehavior;
     private Vector3 m_Velocity = Vector3.zero;
@@ -54,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButton("Jump") && isGrounded)
         {
+            m_AudioChannel.RaisePlayAudioRequest(m_PossibleJumpClips[m_Random.Next(m_PossibleJumpClips.Length)]);
             AddJumpImpulse();
         }
 
@@ -89,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
         {
             m_SprintGauge += (isMoving ? m_WalkSprintGaugeFillRate : m_IdleSprintGaugeFillRate) * Time.fixedDeltaTime;
             m_SprintGauge = Mathf.Clamp01(m_SprintGauge);
-            m_SprintGaugeChannel.RaiseValueChanged(m_SprintGauge);
+            m_SprintGaugeChannel.RaiseValueChanged(m_SprintGauge, !m_CanSprint);
             if (m_SprintGauge >= 1.0f)
             {
                 m_CanSprint = true;
@@ -102,7 +111,7 @@ public class PlayerMovement : MonoBehaviour
                 isSprinting = true;
                 m_SprintGauge -= m_SprintGaugeDecelerationRate * Time.fixedDeltaTime;
                 m_SprintGauge = Mathf.Clamp01(m_SprintGauge);
-                m_SprintGaugeChannel.RaiseValueChanged(m_SprintGauge);
+                m_SprintGaugeChannel.RaiseValueChanged(m_SprintGauge, !m_CanSprint);
             }
             else
             {
@@ -110,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        m_SpeedGauge.RaiseValueChanged(isSprinting ? 10.0f : 0.0f);
+        m_SpeedGauge.RaiseValueChanged(isSprinting ? 10.0f : 0.0f, false);
 
         return isSprinting ? m_RunSpeedMultiplier : 1.0f;
     }

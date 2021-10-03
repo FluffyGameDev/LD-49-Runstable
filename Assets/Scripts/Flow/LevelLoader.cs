@@ -38,6 +38,7 @@ public class LevelLoader : MonoBehaviour
         m_FlowChannel.OnRequestRestartCurrentLevel += OnRequestRestartCurrentLevel;
         m_FlowChannel.OnRequestApplicationQuit += OnRequestApplicationQuit;
         m_FlowChannel.OnLevelComplete += OnLevelComplete;
+        m_FlowChannel.OnRequestResetProgression += OnRequestResetProgression;
 
         m_FlowChannel.RaiseRequestGoToMainMenu();
 
@@ -60,6 +61,7 @@ public class LevelLoader : MonoBehaviour
         m_FlowChannel.OnRequestRestartCurrentLevel -= OnRequestRestartCurrentLevel;
         m_FlowChannel.OnRequestApplicationQuit -= OnRequestApplicationQuit;
         m_FlowChannel.OnLevelComplete -= OnLevelComplete;
+        m_FlowChannel.OnRequestResetProgression -= OnRequestResetProgression;
     }
 
     private void OnLevelLoadRequest(LevelData level)
@@ -143,6 +145,12 @@ public class LevelLoader : MonoBehaviour
         {
             ++m_SaveData.UnlockedLevelCount;
         }
+        LevelSaveData.SaveData(m_SaveData);
+    }
+
+    private void OnRequestResetProgression()
+    {
+        m_SaveData.UnlockedLevelCount = 1;
         LevelSaveData.SaveData(m_SaveData);
     }
 

@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class GameOverUIPresenter : MonoBehaviour
@@ -13,6 +12,12 @@ public class GameOverUIPresenter : MonoBehaviour
     private float m_HideAnimationDuration = 0.5f;
     [SerializeField]
     private float m_ShowAnimationDuration = 1.0f;
+
+    [SerializeField]
+    private AudioChannel m_AudioChannel;
+    [SerializeField]
+    private AudioClip[] m_PossibleClips;
+    private System.Random m_Random = new System.Random();
 
     private void Start()
     {
@@ -29,6 +34,8 @@ public class GameOverUIPresenter : MonoBehaviour
         StartCoroutine(UIUtils.HideUIElement(m_HUD, m_HideAnimationDuration));
         StartCoroutine(UIUtils.ShowUIElement(m_GameOverScreen, m_ShowAnimationDuration));
         Cursor.lockState = CursorLockMode.None;
+
+        m_AudioChannel.RaisePlayAudioRequest(m_PossibleClips[m_Random.Next(m_PossibleClips.Length)]);
     }
 
     public void ShowHUD()

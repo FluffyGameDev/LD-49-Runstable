@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48335b4ac5e0e7249bb7443bd028d26e, type: 3}
   m_Name: Level_02
   m_EditorClassIdentifier: 
-  m_SceneIndex: 4
+  m_SceneIndex: 5
+  m_LevelName: Jumping Around
+  m_LevelThumbnail: {fileID: 21300000, guid: 829c4b8b9a6022f49915fc2759ed9d18, type: 3}
   m_NextLevel: {fileID: 11400000, guid: 2efd01d0398f61f4abebaacf33ad305c, type: 2}

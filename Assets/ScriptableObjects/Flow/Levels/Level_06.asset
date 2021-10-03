@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48335b4ac5e0e7249bb7443bd028d26e, type: 3}
+  m_Name: Level_06
+  m_EditorClassIdentifier: 
+  m_SceneIndex: 9
+  m_LevelName: Jump Train
+  m_LevelThumbnail: {fileID: 21300000, guid: 4f4a6231d5f11544e9ff50d93a6852a1, type: 3}
+  m_NextLevel: {fileID: 11400000, guid: 6bd2a653c90b120419ea2783bb72d543, type: 2}

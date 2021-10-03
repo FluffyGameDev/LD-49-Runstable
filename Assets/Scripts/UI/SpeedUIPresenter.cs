@@ -7,6 +7,10 @@ public class SpeedUIPresenter : MonoBehaviour
     [SerializeField]
     private GaugeChannel m_SpeedGauge;
     [SerializeField]
+    private AudioChannel m_AudioChannel;
+    [SerializeField]
+    private AudioClip m_SpeedClip;
+    [SerializeField]
     private float m_FastSpeedThreashold = 5.0f;
 
     private bool m_IsFast = false;
@@ -35,7 +39,7 @@ public class SpeedUIPresenter : MonoBehaviour
         }
     }
 
-    private void OnGaugeValueChanged(float value)
+    private void OnGaugeValueChanged(float value, bool isDepleted)
     {
         bool wasFast = m_IsFast;
         m_IsFast = value > m_FastSpeedThreashold;
@@ -43,6 +47,15 @@ public class SpeedUIPresenter : MonoBehaviour
         if (wasFast != m_IsFast)
         {
             m_ImageTransform.gameObject.SetActive(m_IsFast);
+
+            if (m_IsFast)
+            {
+                m_AudioChannel.RaisePlayAudioRequest(m_SpeedClip);
+            }
+            else
+            {
+                m_AudioChannel.RaiseStopAudioRequest();
+            }
         }
     }
 }

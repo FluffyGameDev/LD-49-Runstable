@@ -1,11 +1,16 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GaugeUIPresenter : MonoBehaviour
 {
     [SerializeField]
-    Transform m_GaugeValue;
+    Image m_GaugeValue;
     [SerializeField]
     GaugeChannel m_GaugeChannel;
+    [SerializeField]
+    Color m_DefaultColor;
+    [SerializeField]
+    Color m_DepletedColor;
 
     private void Start()
     {
@@ -17,10 +22,12 @@ public class GaugeUIPresenter : MonoBehaviour
         m_GaugeChannel.OnGaugeValueChanged -= OnGaugeValueChanged;
     }
 
-    private void OnGaugeValueChanged(float gaugeValue)
+    private void OnGaugeValueChanged(float gaugeValue, bool isDepleted)
     {
-        Vector3 scale = m_GaugeValue.localScale;
+        Vector3 scale = m_GaugeValue.transform.localScale;
         scale.x = Mathf.Clamp01(gaugeValue);
-        m_GaugeValue.localScale = scale;
+        m_GaugeValue.transform.localScale = scale;
+
+        m_GaugeValue.color = (isDepleted ? m_DepletedColor : m_DefaultColor);
     }
 }

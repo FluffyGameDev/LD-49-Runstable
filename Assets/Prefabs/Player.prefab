@@ -42,7 +42,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -102,6 +102,8 @@ GameObject:
   - component: {fileID: 1042398996819031764}
   - component: {fileID: 1042398996819031765}
   - component: {fileID: 1042398996819031762}
+  - component: {fileID: 1042398996223018152}
+  - component: {fileID: 555184050947122185}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -154,17 +156,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48684aa076440b42aecc8144a644fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxSpeed: 3
+  m_MaxSpeed: 5
   m_RunSpeedMultiplier: 1.5
   m_JumpHeight: 1
   m_JumpDeceleration: 0.1
   m_SlideDeceleration: 0.1
   m_GroundDeceleration: 10
-  m_SprintGaugeChannel: {fileID: 0}
-  m_SpeedGauge: {fileID: 0}
+  m_SprintGaugeChannel: {fileID: 11400000, guid: d5cdc6eed94f38c48bf80058d9733155, type: 2}
+  m_SpeedGauge: {fileID: 11400000, guid: 714963c6529f28445be7f6bb346f44c3, type: 2}
   m_IdleSprintGaugeFillRate: 0.5
-  m_WalkSprintGaugeFillRate: 0.1
-  m_SprintGaugeDecelerationRate: 0.5
+  m_WalkSprintGaugeFillRate: 0.25
+  m_SprintGaugeDecelerationRate: 0.25
+  m_AudioChannel: {fileID: 11400000, guid: b63ad7278666bce4483f10b2554505f5, type: 2}
+  m_PossibleJumpClips:
+  - {fileID: 8300000, guid: e5d4ae2897c2128449724688ae2cfefe, type: 3}
+  - {fileID: 8300000, guid: 6e5d8e72e1fb4bb4caf9193c684721e9, type: 3}
+  - {fileID: 8300000, guid: 3c37395549046584e8cdb1d3ee8332a7, type: 3}
 --- !u!114 &1042398996819031765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,5 +205,33 @@ MonoBehaviour:
   m_WallLayer:
     serializedVersion: 2
     m_Bits: 64
-  m_WallRunSpeed: 1
-  m_SpeedGauge: {fileID: 0}
+  m_WallRunSpeed: 6
+  m_SpeedGauge: {fileID: 11400000, guid: 714963c6529f28445be7f6bb346f44c3, type: 2}
+--- !u!114 &1042398996223018152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042398996819031753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ce4276784216a44a688f20bba735d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FlowChannel: {fileID: 11400000, guid: 56fb19af248586b4ba8c07bca1725bb4, type: 2}
+--- !u!114 &555184050947122185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042398996819031753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 691738d2214c77f49972415a46ab1fc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AudioChannel: {fileID: 11400000, guid: 6ca3110eb421c4d4bb5958f88cb5cc95, type: 2}
+  m_Clip: {fileID: 8300000, guid: 0e7e0ccf971749f428bcae893e829c7e, type: 3}
+  m_Priority: 2

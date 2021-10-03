@@ -66,14 +66,14 @@ public class WallRunBehavior : MonoBehaviour
         m_PlayerMovement.ResetFallVelocity();
         m_PlayerMovement.enabled = false;
         m_IsWallRunning = true;
-        m_SpeedGauge.RaiseValueChanged(10.0f);
+        m_SpeedGauge.RaiseValueChanged(10.0f, false);
     }
 
     private void StopWallRun()
     {
         m_PlayerMovement.enabled = true;
         m_IsWallRunning = false;
-        m_SpeedGauge.RaiseValueChanged(0.0f);
+        m_SpeedGauge.RaiseValueChanged(0.0f, false);
     }
 
     private WallDirection FindWallDirection()

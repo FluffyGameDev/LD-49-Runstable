@@ -13,6 +13,7 @@ public class FlowChannel : ScriptableObject
     public FlowCallback OnRequestRestartCurrentLevel;
     public FlowCallback OnRequestApplicationQuit;
     public FlowCallback OnRequestTogglePause;
+    public FlowCallback OnRequestResetProgression;
     public FlowCallback OnLevelComplete;
 
     public void RaiseRequestLoadLevel(LevelData level)
@@ -48,6 +49,11 @@ public class FlowChannel : ScriptableObject
     public void RaiseRequestTogglePause()
     {
         OnRequestTogglePause?.Invoke();
+    }
+
+    public void RaiseRequestResetProgression()
+    {
+        OnRequestResetProgression?.Invoke();
     }
 
     public void RaiseLevelComplete()

@@ -457,6 +457,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_FlowChannel: {fileID: 11400000, guid: 56fb19af248586b4ba8c07bca1725bb4, type: 2}
+  m_AudioChannel: {fileID: 11400000, guid: 2a8da9b5b57807c45978218f0d4044b2, type: 2}
+  m_LevelEndClip: {fileID: 8300000, guid: 1ce8a6bfe33d1d64db11980ae3be4be6, type: 3}
   m_HUD: {fileID: 2053805136}
   m_EndLevelScreen: {fileID: 1032669943}
   m_BackButton: {fileID: 1591641530}
@@ -564,6 +566,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 2a8da9b5b57807c45978218f0d4044b2, type: 2}
+        m_TargetAssemblyTypeName: AudioChannel, Assembly-CSharp
+        m_MethodName: RaisePlayAudioRequest
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 7a39b7a2c37fff34d957528978a8ab90, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1104,6 +1118,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 2a8da9b5b57807c45978218f0d4044b2, type: 2}
+        m_TargetAssemblyTypeName: AudioChannel, Assembly-CSharp
+        m_MethodName: RaisePlayAudioRequest
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 7a39b7a2c37fff34d957528978a8ab90, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &683709549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1324,6 +1350,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 2a8da9b5b57807c45978218f0d4044b2, type: 2}
+        m_TargetAssemblyTypeName: AudioChannel, Assembly-CSharp
+        m_MethodName: RaisePlayAudioRequest
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 7a39b7a2c37fff34d957528978a8ab90, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &893658356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1397,9 +1435,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -296.55652}
-  m_SizeDelta: {x: -510.3331, y: -630.4907}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 26.943481}
+  m_SizeDelta: {x: -510.3331, y: 16.509277}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1022297934
 MonoBehaviour:
@@ -1413,8 +1451,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9cb93e6375cd094a9868291d10bad48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_GaugeValue: {fileID: 1693346286}
+  m_GaugeValue: {fileID: 1693346287}
   m_GaugeChannel: {fileID: 11400000, guid: d5cdc6eed94f38c48bf80058d9733155, type: 2}
+  m_DefaultColor: {r: 1, g: 1, b: 1, a: 1}
+  m_DepletedColor: {r: 0.9056604, g: 0.20932718, b: 0.20932718, a: 1}
 --- !u!114 &1022297935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1610,6 +1650,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ImageTransform: {fileID: 178072909}
   m_SpeedGauge: {fileID: 11400000, guid: 714963c6529f28445be7f6bb346f44c3, type: 2}
+  m_AudioChannel: {fileID: 11400000, guid: c0bf7f71b8f399f409a9d45b4089acc1, type: 2}
+  m_SpeedClip: {fileID: 8300000, guid: fbc41620dd583a943ad485de00bae120, type: 3}
   m_FastSpeedThreashold: 5
 --- !u!1 &1356981623
 GameObject:
@@ -1781,7 +1823,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -56}
+  m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 189.6809, y: 44.978}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1414628962
@@ -1835,6 +1877,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 2a8da9b5b57807c45978218f0d4044b2, type: 2}
+        m_TargetAssemblyTypeName: AudioChannel, Assembly-CSharp
+        m_MethodName: RaisePlayAudioRequest
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 7a39b7a2c37fff34d957528978a8ab90, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2234,6 +2288,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 2a8da9b5b57807c45978218f0d4044b2, type: 2}
+        m_TargetAssemblyTypeName: AudioChannel, Assembly-CSharp
+        m_MethodName: RaisePlayAudioRequest
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 7a39b7a2c37fff34d957528978a8ab90, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 11400000, guid: 56fb19af248586b4ba8c07bca1725bb4, type: 2}
         m_TargetAssemblyTypeName: FlowChannel, Assembly-CSharp
         m_MethodName: RaiseRequestTogglePause
@@ -2338,6 +2404,12 @@ MonoBehaviour:
   m_GameOverScreen: {fileID: 1872452082}
   m_HideAnimationDuration: 0.2
   m_ShowAnimationDuration: 0.5
+  m_AudioChannel: {fileID: 11400000, guid: b63ad7278666bce4483f10b2554505f5, type: 2}
+  m_PossibleClips:
+  - {fileID: 8300000, guid: f7b998928dd3c5147860ae1738f0fc97, type: 3}
+  - {fileID: 8300000, guid: 37661727b83c6c741a0f3fe9705e0701, type: 3}
+  - {fileID: 8300000, guid: c477dc6d750b87f45b9f87c25188c4ec, type: 3}
+  - {fileID: 8300000, guid: 68af9bf689fe5e443a617a74b61c5bf7, type: 3}
 --- !u!1 &1591641530
 GameObject:
   m_ObjectHideFlags: 0
@@ -2433,6 +2505,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 2a8da9b5b57807c45978218f0d4044b2, type: 2}
+        m_TargetAssemblyTypeName: AudioChannel, Assembly-CSharp
+        m_MethodName: RaisePlayAudioRequest
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 7a39b7a2c37fff34d957528978a8ab90, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1591641533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2503,10 +2587,10 @@ RectTransform:
   m_Father: {fileID: 1022297933}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 558, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1693346287
 MonoBehaviour:
@@ -2956,6 +3040,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 2a8da9b5b57807c45978218f0d4044b2, type: 2}
+        m_TargetAssemblyTypeName: AudioChannel, Assembly-CSharp
+        m_MethodName: RaisePlayAudioRequest
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 7a39b7a2c37fff34d957528978a8ab90, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

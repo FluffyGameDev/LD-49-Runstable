@@ -1,9 +1,14 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EndLevelUIPresenter : MonoBehaviour
 {
     [SerializeField]
     private FlowChannel m_FlowChannel;
+    [SerializeField]
+    private AudioChannel m_AudioChannel;
+    [SerializeField]
+    private AudioClip m_LevelEndClip;
     [SerializeField]
     private CanvasGroup m_HUD;
     [SerializeField]
@@ -27,6 +32,8 @@ public class EndLevelUIPresenter : MonoBehaviour
 
     private void OnLevelComplete()
     {
+        m_AudioChannel.RaisePlayAudioRequest(m_LevelEndClip, AudioPriority.High);
+
         LevelData nextLevel = LevelLoader.Instance.CurrentLevel;
         m_BackButton.SetActive(nextLevel != null && nextLevel.NextLevel != null);
 

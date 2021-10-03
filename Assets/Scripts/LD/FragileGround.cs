@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FragileGround : MonoBehaviour
 {
@@ -20,6 +21,10 @@ public class FragileGround : MonoBehaviour
     private MeshRenderer m_MeshRenderer;
     [SerializeField]
     private ParticleSystem m_ParticleSystem;
+    [SerializeField]
+    private UnityEvent m_OnCrumbleStart;
+    [SerializeField]
+    private UnityEvent m_OnDestroyed;
 
     private State m_State = State.Idle;
     private float m_TimerStart = 0.0f;
@@ -31,6 +36,7 @@ public class FragileGround : MonoBehaviour
         {
             m_State = State.Crumbling;
             m_TimerStart = Time.time;
+            m_OnCrumbleStart.Invoke();
         }
     }
 
@@ -54,6 +60,7 @@ public class FragileGround : MonoBehaviour
                     m_MeshRenderer.enabled = false;
                     m_TimerStart = Time.time;
                     m_ParticleSystem.Play();
+                    m_OnDestroyed.Invoke();
                     m_State = State.ParticleAnimation;
                 }
                 break;

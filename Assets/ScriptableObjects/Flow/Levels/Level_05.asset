@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48335b4ac5e0e7249bb7443bd028d26e, type: 3}
   m_Name: Level_05
   m_EditorClassIdentifier: 
-  m_SceneIndex: 4
-  m_NextLevel: {fileID: 0}
+  m_SceneIndex: 8
+  m_LevelName: Precarious Foothold
+  m_LevelThumbnail: {fileID: 21300000, guid: 60c9ab38b7839d84ca2793fa3105a745, type: 3}
+  m_NextLevel: {fileID: 11400000, guid: 68b9feb4dab051944a7cbe546e7db139, type: 2}

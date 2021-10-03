@@ -24,10 +24,17 @@ public class AudioSequencer : MonoBehaviour
 
     private void OnPlayAudioRequested(AudioClip clip, AudioPriority priority)
     {
-        if (!m_AudioSource.isPlaying || (int)priority >= (int)m_CurrentClipPriority)
+        if (!m_AudioSource.isPlaying || (int)priority <= (int)m_CurrentClipPriority && m_AudioSource.clip != clip)
         {
+            if (m_AudioSource.isPlaying)
+            {
+                m_AudioSource.Stop();
+            }
+
             m_CurrentClipPriority = priority;
             m_AudioSource.clip = clip;
+
+            m_AudioSource.Play();
         }
     }
 
