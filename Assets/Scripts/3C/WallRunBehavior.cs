@@ -38,7 +38,7 @@ public class WallRunBehavior : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (m_IsWallRunning)
         {
@@ -47,14 +47,14 @@ public class WallRunBehavior : MonoBehaviour
             {
                 StopWallRun();
             }
-            else if (Input.GetButton("Jump"))
+            else if (Input.GetButtonDown("Jump"))
             {
                 m_PlayerMovement.AddJumpImpulse();
                 StopWallRun();
             }
             else
             {
-                m_CharacterController.Move(m_RunDirection * Time.fixedDeltaTime * m_WallRunSpeed);
+                m_CharacterController.Move(m_RunDirection * Time.deltaTime * m_WallRunSpeed);
             }
         }
     }
