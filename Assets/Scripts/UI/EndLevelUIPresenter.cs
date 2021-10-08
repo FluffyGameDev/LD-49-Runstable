@@ -20,6 +20,9 @@ public class EndLevelUIPresenter : MonoBehaviour
     [SerializeField]
     private float m_ShowAnimationDuration = 1.0f;
 
+    private Coroutine m_HUDCoroutine = null;
+    private Coroutine m_EndLevelCoroutine = null;
+
     private void Start()
     {
         m_FlowChannel.OnLevelComplete += OnLevelComplete;
@@ -37,15 +40,29 @@ public class EndLevelUIPresenter : MonoBehaviour
         LevelData nextLevel = LevelLoader.Instance.CurrentLevel;
         m_BackButton.SetActive(nextLevel != null && nextLevel.NextLevel != null);
 
-        StartCoroutine(UIUtils.HideUIElement(m_HUD, m_HideAnimationDuration));
-        StartCoroutine(UIUtils.ShowUIElement(m_EndLevelScreen, m_ShowAnimationDuration));
+        StopAnimations();
+        m_HUDCoroutine = StartCoroutine(UIUtils.HideUIElement(m_HUD, m_HideAnimationDuration));
+        m_EndLevelCoroutine = StartCoroutine(UIUtils.ShowUIElement(m_EndLevelScreen, m_ShowAnimationDuration));
         Cursor.lockState = CursorLockMode.None;
     }
 
     public void ShowHUD()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        StartCoroutine(UIUtils.ShowUIElement(m_HUD, m_HideAnimationDuration));
-        StartCoroutine(UIUtils.HideUIElement(m_EndLevelScreen, m_ShowAnimationDuration));
+        StopAnimations();
+        m_HUDCoroutine = StartCoroutine(UIUtils.ShowUIElement(m_HUD, m_HideAnimationDuration));
+        m_EndLevelCoroutine = StartCoroutine(UIUtils.HideUIElement(m_EndLevelScreen, m_ShowAnimationDuration));
+    }
+
+    private void StopAnimations()
+    {
+        if (m_HUDCoroutine != null)
+        {
+            StopCoroutine(m_HUDCoroutine);
+        }
+        if (m_EndLevelCoroutine != null)
+        {
+            StopCoroutine(m_EndLevelCoroutine);
+        }
     }
 }

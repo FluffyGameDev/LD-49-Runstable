@@ -15,6 +15,8 @@ public class PauseUIPresenter : MonoBehaviour
     private float m_ShowAnimationDuration = 0.5f;
 
     private bool m_IsPaused = false;
+    private Coroutine m_HUDCoroutine = null;
+    private Coroutine m_PauseCoroutine = null;
 
     private void Start()
     {
@@ -31,15 +33,29 @@ public class PauseUIPresenter : MonoBehaviour
         m_IsPaused = !m_IsPaused;
         if (m_IsPaused)
         {
-            StartCoroutine(UIUtils.HideUIElement(m_HUD, m_HideAnimationDuration));
-            StartCoroutine(UIUtils.ShowUIElement(m_PauseScreen, m_ShowAnimationDuration));
+            StopAnimations();
+            m_HUDCoroutine = StartCoroutine(UIUtils.HideUIElement(m_HUD, m_HideAnimationDuration));
+            m_PauseCoroutine = StartCoroutine(UIUtils.ShowUIElement(m_PauseScreen, m_ShowAnimationDuration));
             Cursor.lockState = CursorLockMode.None;
         }
         else
         {
             Cursor.lockState = CursorLockMode.Locked;
-            StartCoroutine(UIUtils.ShowUIElement(m_HUD, m_HideAnimationDuration));
-            StartCoroutine(UIUtils.HideUIElement(m_PauseScreen, m_ShowAnimationDuration));
+            StopAnimations();
+            m_HUDCoroutine =StartCoroutine(UIUtils.ShowUIElement(m_HUD, m_HideAnimationDuration));
+            m_PauseCoroutine = StartCoroutine(UIUtils.HideUIElement(m_PauseScreen, m_ShowAnimationDuration));
+        }
+    }
+
+    private void StopAnimations()
+    {
+        if (m_HUDCoroutine != null)
+        {
+            StopCoroutine(m_HUDCoroutine);
+        }
+        if (m_PauseCoroutine != null)
+        {
+            StopCoroutine(m_PauseCoroutine);
         }
     }
 }
